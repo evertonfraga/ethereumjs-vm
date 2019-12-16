@@ -23,12 +23,17 @@ jobs:
           key: '${{ runner.os }}-node8-${{ hashFiles(''**/package.json'') }}'
       - run: npm install
         if: steps.cache-node-modules.outputs.cache-hit != 'true'
+        working-directory: '${{ env.cwd }}'
       - run: npm run testAPI
         env:
           CI: true
+        working-directory: '${{ env.cwd }}'
       - run: 'npm run testAPI:browser'
         env:
           CI: true
+        working-directory: '${{ env.cwd }}'
+    env:
+      cwd: '${{github.workspace}}/packages/vm'
   test-state:
     runs-on: ubuntu-latest
     strategy:
@@ -51,10 +56,14 @@ jobs:
           key: '${{ runner.os }}-node8-${{ hashFiles(''**/package.json'') }}'
       - run: npm install
         if: steps.cache-node-modules.outputs.cache-hit != 'true'
+        working-directory: '${{ env.cwd }}'
       - name: 'Run ${{ matrix.hardfork }} state tests'
         run: 'npm run ${{ format(''testState{0}'', matrix.hardfork) }}'
         env:
           CI: true
+        working-directory: '${{ env.cwd }}'
+    env:
+      cwd: '${{github.workspace}}/packages/vm'
   test-blockchain:
     runs-on: ubuntu-latest
     strategy:
@@ -75,7 +84,11 @@ jobs:
           key: '${{ runner.os }}-node8-${{ hashFiles(''**/package.json'') }}'
       - run: npm install
         if: steps.cache-node-modules.outputs.cache-hit != 'true'
+        working-directory: '${{ env.cwd }}'
       - name: 'Run ${{ matrix.hardfork }} blockchain state tests'
         run: 'npm run ${{ format(''testBlockchain{0}'', matrix.hardfork) }}'
         env:
           CI: true
+        working-directory: '${{ env.cwd }}'
+    env:
+      cwd: '${{github.workspace}}/packages/vm'
