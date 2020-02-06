@@ -15,9 +15,15 @@ jobs:
           node-version: 12.x
       - uses: actions/checkout@v1
       - run: npm install
+        working-directory: '${{ env.cwd }}'
       - run: npm run coverage
+        working-directory: '${{ env.cwd }}'
       - run: npm run coveralls
+        working-directory: '${{ env.cwd }}'
       - name: Post coverage data to coveralls.io for analysis
         uses: coverallsapp/github-action@master
         with:
           github-token: '${{ secrets.GITHUB_TOKEN }}'
+          path-to-lcov: '${{ env.cwd }}/coverage/lcov.info'
+    env:
+      cwd: '${{github.workspace}}/packages/blockchain'
