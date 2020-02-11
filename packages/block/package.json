@@ -56,7 +56,7 @@
     "@ethereumjs/config-prettier": "^1.1.1",
     "@ethereumjs/config-tsc": "^1.1.1",
     "@ethereumjs/config-tslint": "^1.1.1",
-    "@types/node": "^11.13.4",
+    "@types/node": "^13.7.1",
     "@types/tape": "^4.2.33",
     "browserify": "^16.2.3",
     "coveralls": "^2.11.4",
