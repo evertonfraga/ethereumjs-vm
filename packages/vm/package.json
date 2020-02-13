@@ -74,7 +74,7 @@
     "@types/tape": "^4.2.33",
     "browserify": "^16.2.3",
     "ethereumjs-testing": "git+https://github.com/ethereumjs/ethereumjs-testing.git#v1.3.0",
-    "husky": "^2.1.0",
+    "husky": "^4.2.3",
     "karma": "^4.0.1",
     "karma-browserify": "^6.0.0",
     "karma-chrome-launcher": "^2.2.0",
