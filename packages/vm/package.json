@@ -79,7 +79,7 @@
     "karma-browserify": "^6.0.0",
     "karma-chrome-launcher": "^2.2.0",
     "karma-firefox-launcher": "^1.1.0",
-    "karma-tap": "^4.1.4",
+    "karma-tap": "^4.2.0",
     "level": "^4.0.0",
     "level-mem": "^3.0.1",
     "minimist": "^1.1.1",
