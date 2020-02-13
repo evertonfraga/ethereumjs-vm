@@ -59,7 +59,7 @@
     "karma-browserify": "^6.0.0",
     "karma-detect-browsers": "^2.3.3",
     "karma-firefox-launcher": "^1.1.0",
-    "karma-tap": "^4.1.4",
+    "karma-tap": "^4.2.0",
     "minimist": "^1.2.0",
     "nyc": "^14.0.0",
     "prettier": "^1.17.0",
