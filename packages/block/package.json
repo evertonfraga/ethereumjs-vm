@@ -60,7 +60,7 @@
     "@types/tape": "^4.2.33",
     "browserify": "^16.2.3",
     "coveralls": "^2.11.4",
-    "husky": "^2.1.0",
+    "husky": "^4.2.3",
     "istanbul": "^0.4.1",
     "karma": "^4.1.0",
     "karma-browserify": "^6.0.0",
