@@ -19,7 +19,7 @@ aliases:
           command: cd ~/project/packages/${CIRCLE_JOB} && npm run coverage
       - run: 
           name: Codecov upload
-          command: curl -s https://codecov.io/bash | bash -s -- -f ~/project/packages/${CIRCLE_JOB}/coverage/lcov.info -F "${CIRCLE_JOB}" -t "${CODECOV_TOKEN}" -n "${CIRCLE_BUILD_NUM}" -y ".codecov.yml" -Z || echo 'Codecov upload failed'
+          command: curl -s https://codecov.io/bash | bash -s -- -f ~/project/packages/${CIRCLE_JOB}/coverage/lcov.info -F "${CIRCLE_JOB}" -t "${CODECOV_TOKEN}" -n "${CIRCLE_BUILD_NUM}" -y ".codecov.yml" -Z || exit 1
 
 jobs:
   account:
