@@ -23,7 +23,7 @@
     "tsc": "ethereumjs-config-tsc",
     "lint": "ethereumjs-config-lint",
     "lint:fix": "ethereumjs-config-lint-fix",
-    "test": "npx tape -r ts-node/register test/*.spec.ts"
+    "test": "ts-node node_modules/tape/bin/tape ./test/index.ts"
   },
   "husky": {
     "hooks": {
