@@ -2,8 +2,6 @@
 
 # Interface: RunBlockOpts
 
-Options for running a block.
-
 ## Hierarchy
 
 **RunBlockOpts**
@@ -27,9 +25,7 @@ Options for running a block.
 
 **● block**: *`any`*
 
-*Defined in [runBlock.ts:18](https://github.com/ethereumjs/ethereumjs-vm/blob/439570a/lib/runBlock.ts#L18)*
-
-The [`Block`](https://github.com/ethereumjs/ethereumjs-block) to process
+*Defined in [runBlock.ts:18](https://github.com/ethereumjs/ethereumjs-vm/blob/d2b1b34/packages/vm/lib/runBlock.ts#L18)*
 
 ___
 <a id="generate"></a>
@@ -38,9 +34,7 @@ ___
 
 **● generate**: *`undefined` \| `false` \| `true`*
 
-*Defined in [runBlock.ts:27](https://github.com/ethereumjs/ethereumjs-vm/blob/439570a/lib/runBlock.ts#L27)*
-
-Whether to generate the stateRoot. If false `runBlock` will check the stateRoot of the block against the Trie
+*Defined in [runBlock.ts:27](https://github.com/ethereumjs/ethereumjs-vm/blob/d2b1b34/packages/vm/lib/runBlock.ts#L27)*
 
 ___
 <a id="root"></a>
@@ -49,9 +43,7 @@ ___
 
 **● root**: *`Buffer`*
 
-*Defined in [runBlock.ts:22](https://github.com/ethereumjs/ethereumjs-vm/blob/439570a/lib/runBlock.ts#L22)*
-
-Root of the state trie
+*Defined in [runBlock.ts:22](https://github.com/ethereumjs/ethereumjs-vm/blob/d2b1b34/packages/vm/lib/runBlock.ts#L22)*
 
 ___
 <a id="skipblockvalidation"></a>
@@ -60,9 +52,7 @@ ___
 
 **● skipBlockValidation**: *`undefined` \| `false` \| `true`*
 
-*Defined in [runBlock.ts:31](https://github.com/ethereumjs/ethereumjs-vm/blob/439570a/lib/runBlock.ts#L31)*
-
-If true, will skip block validation
+*Defined in [runBlock.ts:31](https://github.com/ethereumjs/ethereumjs-vm/blob/d2b1b34/packages/vm/lib/runBlock.ts#L31)*
 
 ___
 
