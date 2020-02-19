@@ -17,9 +17,13 @@ aliases:
       - run: 
           name: Running coverage tests
           command: cd ~/project/packages/${CIRCLE_JOB} && npm run coverage
+      - run: cat ~/project/packages/${CIRCLE_JOB}/coverage/lcov.info 
+      - store_artifacts:
+           path: ~/project/packages/${CIRCLE_JOB}/coverage/lcov.info 
+           destination: /tmp/coverage/${CIRCLE_JOB}
       - run: 
           name: Codecov upload
-          command: curl -s https://codecov.io/bash | bash -s -- -f ~/project/packages/${CIRCLE_JOB}/coverage/lcov.info -F "${CIRCLE_JOB}" -t "${CODECOV_TOKEN}" -n "${CIRCLE_BUILD_NUM}" -y ".codecov.yml" -Z || exit 1
+          command: curl -s https://codecov.io/bash | bash -s -- -f ~/project/packages/${CIRCLE_JOB}/coverage/lcov.info -F "${CIRCLE_JOB}" -t "${CODECOV_TOKEN}" -n "${CIRCLE_BUILD_NUM}" -y "codecov.yml" -Z
 
 jobs:
   account:
