@@ -1,0 +1,13 @@
+flags:
+  account:
+    paths: packages/account/
+  block:
+    paths: packages/block/
+  blockchain:
+    paths: packages/blockchain/
+  common:
+    paths: packages/common/
+  tx:
+    paths: packages/tx/
+  vm:
+    paths: packages/vm/
