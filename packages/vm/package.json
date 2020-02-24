@@ -46,7 +46,7 @@
     "VM"
   ],
   "dependencies": {
-    "async": "^2.1.2",
+    "async": "^3.2.0",
     "async-eventemitter": "^0.2.2",
     "core-js-pure": "^3.0.1",
     "ethereumjs-account": "^3.0.0",
