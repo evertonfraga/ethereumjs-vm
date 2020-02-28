@@ -47,7 +47,7 @@
     "@ethereumjs/config-tslint": "^1.1.1",
     "@types/bn.js": "^4.11.5",
     "@types/minimist": "^1.2.0",
-    "@types/node": "^11.13.4",
+    "@types/node": "^13.7.6",
     "@types/tape": "^4.2.33",
     "browserify": "^16.2.3",
     "contributor": "^0.1.25",
