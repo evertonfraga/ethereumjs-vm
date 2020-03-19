@@ -51,7 +51,7 @@
     "@types/tape": "^4.2.33",
     "browserify": "^16.2.3",
     "contributor": "^0.1.25",
-    "coveralls": "^2.11.4",
+    "coveralls": "^3.0.11",
     "ethereumjs-testing": "git+https://github.com/ethereumjs/ethereumjs-testing.git#v1.3.0",
     "husky": "^2.1.0",
     "istanbul": "^0.4.1",
