@@ -70,7 +70,7 @@
     "@types/bn.js": "^4.11.5",
     "@types/core-js": "^2.5.0",
     "@types/lru-cache": "^5.1.0",
-    "@types/node": "^11.13.4",
+    "@types/node": "^13.11.0",
     "@types/tape": "^4.2.33",
     "browserify": "^16.2.3",
     "ethereumjs-testing": "git+https://github.com/ethereumjs/ethereumjs-testing.git#v1.3.0",
