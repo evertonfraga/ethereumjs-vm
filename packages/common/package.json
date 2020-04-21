@@ -55,7 +55,7 @@
     "@ethereumjs/config-tslint": "^1.1.0",
     "@types/node": "^10.12.2",
     "@types/tape": "^4.2.33",
-    "coveralls": "^3.0.1",
+    "coveralls": "^3.0.12",
     "husky": "^2.1.0",
     "nyc": "^11.7.1",
     "prettier": "^1.15.3",
