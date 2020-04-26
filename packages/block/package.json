@@ -70,7 +70,7 @@
     "nyc": "^15.0.0",
     "prettier": "^1.17.0",
     "tape": "^4.0.3",
-    "ts-node": "^8.0.3",
+    "ts-node": "^8.9.1",
     "tslint": "^5.15.0",
     "typedoc": "next",
     "typedoc-plugin-markdown": "^2.2.17",
