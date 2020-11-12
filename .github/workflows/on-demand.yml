@@ -41,9 +41,17 @@ jobs:
         with:
           node-version: 12.x
 
+      - run: ${{ github.event.action }}
+        continue-on-error: true
 
-      - run: ${{ toJson(github) }}
-
+      - run: ${{ github.event.label.name }}
+        continue-on-error: true
+      
       - run: ${{ toJson(github.event.pull_request.labels) }}
+        continue-on-error: true
+      
+      - run: ${{ toJson(github.event.pull_request.labels.*) }}
+        continue-on-error: true
       
       - run: ${{ matrix.fork }}
+        continue-on-error: true
