@@ -8,24 +8,24 @@ defaults:
     working-directory: packages/vm
 
 jobs:
-  test-vm-state:
-    # if: contains(github.event.pull_request.labels.*.name, 'pr: test all hardforks')
-    runs-on: ubuntu-latest
-    strategy:
-      matrix:
-        fork: [
-          'Berlin',
-          'Istanbul',
-        ]
-      fail-fast: false
-    steps:
-      - uses: actions/setup-node@v1
-        with:
-          node-version: 12.x
+  # test-vm-state:
+  #   # if: contains(github.event.pull_request.labels.*.name, 'pr: test all hardforks')
+  #   runs-on: ubuntu-latest
+  #   strategy:
+  #     matrix:
+  #       fork: [
+  #         'Berlin',
+  #         'Istanbul',
+  #       ]
+  #     fail-fast: false
+  #   steps:
+  #     - uses: actions/setup-node@v1
+  #       with:
+  #         node-version: 12.x
 
-      - run: echo $'{{ matrix.fork }}'
+  #     - run: echo $'{{ matrix.fork }}'
 
-      - run: echo '${{ toJson(github) }}'
+  #     - run: ${{ toJson(github) }}
 
   test-vm-state-2:
     runs-on: ubuntu-latest
@@ -41,8 +41,9 @@ jobs:
         with:
           node-version: 12.x
 
-      - run: echo '${{ matrix.fork }}'
 
-      - run: echo '${{ toJson(github.event.pull_request.labels) }}'
+      - run: ${{ toJson(github) }}
 
-      - run: echo '${{ toJson(github) }}'
+      - run: ${{ toJson(github.event.pull_request.labels) }}
+      
+      - run: ${{ matrix.fork }}
