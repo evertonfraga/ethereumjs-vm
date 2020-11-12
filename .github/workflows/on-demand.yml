@@ -3,9 +3,6 @@ on:
   pull_request:
     types: [opened, reopened, synchronize, labeled]
 
-env:
-  cwd: ${{github.workspace}}/packages/vm
-
 defaults:
   run:
     working-directory: packages/vm
@@ -26,9 +23,9 @@ jobs:
         with:
           node-version: 12.x
 
-      - run: echo $"{{ matrix.fork }}"
+      - run: echo $'{{ matrix.fork }}'
 
-      - run: echo "${{ github }}"
+      - run: echo '${{ toJson(github) }}'
 
   test-vm-state-2:
     runs-on: ubuntu-latest
@@ -44,8 +41,8 @@ jobs:
         with:
           node-version: 12.x
 
-      - run: echo "${{ matrix.fork }}"
+      - run: echo '${{ matrix.fork }}'
 
-      - run: echo "${{ github.event.pull_request.labels }}"
+      - run: echo '${{ toJson(github.event.pull_request.labels) }}'
 
-      - run: echo "${{ toJson(github) }}"
+      - run: echo '${{ toJson(github) }}'
