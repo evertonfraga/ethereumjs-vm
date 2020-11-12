@@ -1,0 +1,31 @@
+name: VM
+on:
+  pull_request:
+    types: [opened, reopened, synchronize]
+
+env:
+  cwd: ${{github.workspace}}/packages/vm
+
+defaults:
+  run:
+    working-directory: packages/vm
+
+jobs:
+  test-vm-state:
+    if: contains(github.event.pull_request.labels.*.name, "test all hardforks")
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        fork: [
+          'Berlin',
+          'Istanbul',
+        ]
+      fail-fast: false
+    steps:
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
+
+      - run: echo ${{ matrix.fork }}
+
+      - run: echo ${{ toJson(github) }}
