@@ -50,8 +50,8 @@ jobs:
       - run: ${{ toJson(github.event.pull_request.labels.*.name) }}
         continue-on-error: true
       
-      - run: ${{ contains(github.event.pull_request.labels.*.name, "pr:\u0020test all hardforks") }}
-        continue-on-error: true
+      # - run: ${{ contains(github.event.pull_request.labels.*.name, "pr:\u0020test all hardforks") }}
+      #   continue-on-error: true
       
       - run: ${{ contains(github.event.pull_request.labels.*.name, "pr::&#x20;test all hardforks") }}
         continue-on-error: true
