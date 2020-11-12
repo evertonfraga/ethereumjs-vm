@@ -47,14 +47,18 @@ jobs:
       - run: ${{ toJson(github) }}
         continue-on-error: true
 
-      - run: ${{ github.event.label.name }}
+      - run: ${{ toJson(github.event.pull_request.labels.*.name) }}
         continue-on-error: true
       
-      - run: ${{ toJson(github.event.pull_request.labels) }}
+      - run: ${{ contains(github.event.pull_request.labels.*.name, "pr:\u0020test all hardforks") }}
         continue-on-error: true
       
-      - run: ${{ join(toJson(github.event.pull_request.labels.*), ', ') }}
+      - run: ${{ contains(github.event.pull_request.labels.*.name, "pr::&#x20;test all hardforks") }}
         continue-on-error: true
       
       - run: ${{ matrix.fork }}
         continue-on-error: true
+
+      # Escaping : in yaml is :: (smh)
+      - run: echo "pr:\ asd"
+
