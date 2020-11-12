@@ -8,26 +8,8 @@ defaults:
     working-directory: packages/vm
 
 jobs:
-  # test-vm-state:
-  #   # if: contains(github.event.pull_request.labels.*.name, 'pr: test all hardforks')
-  #   runs-on: ubuntu-latest
-  #   strategy:
-  #     matrix:
-  #       fork: [
-  #         'Berlin',
-  #         'Istanbul',
-  #       ]
-  #     fail-fast: false
-  #   steps:
-  #     - uses: actions/setup-node@v1
-  #       with:
-  #         node-version: 12.x
-
-  #     - run: echo $'{{ matrix.fork }}'
-
-  #     - run: ${{ toJson(github) }}
-
-  test-vm-state-2:
+  test-vm-state:
+    if: contains(github.event.pull_request.labels.*.name, 'Test all hardforks')
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -50,16 +32,40 @@ jobs:
       - run: ${{ toJson(github.event.pull_request.labels.*.name) }}
         continue-on-error: true
       
-      # - run: ${{ contains(github.event.pull_request.labels.*.name, "pr:\u0020test all hardforks") }}
-      #   continue-on-error: true
-      
-      - run: ${{ contains(github.event.pull_request.labels.*.name, 'test all hardforks') }}
+      - run: ${{ contains(github.event.pull_request.labels.*.name, 'Test all hardforks') }}
         continue-on-error: true
         name: Label check
       
       - run: ${{ matrix.fork }}
         continue-on-error: true
 
-      # Escaping : in yaml is :: (smh)
-      - run: echo "pr:\ asd"
+  test-vm-state-2:
+    if: contains(github.event.pull_request.labels.*.name, 'Test all hardforks')
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        fork: [
+          'Berlin',
+          'Istanbul',
+        ]
+      fail-fast: false
+    steps:
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 12.x
 
+      - run: ${{ github.event.action }}
+        continue-on-error: true
+
+      - run: ${{ toJson(github) }}
+        continue-on-error: true
+
+      - run: ${{ toJson(github.event.pull_request.labels.*.name) }}
+        continue-on-error: true
+      
+      - run: ${{ contains(github.event.pull_request.labels.*.name, 'Test all hardforks') }}
+        continue-on-error: true
+        name: Label check
+      
+      - run: ${{ matrix.fork }}
+        continue-on-error: true
