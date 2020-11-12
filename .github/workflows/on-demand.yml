@@ -44,13 +44,16 @@ jobs:
       - run: ${{ github.event.action }}
         continue-on-error: true
 
+      - run: ${{ toJson(github) }}
+        continue-on-error: true
+
       - run: ${{ github.event.label.name }}
         continue-on-error: true
       
       - run: ${{ toJson(github.event.pull_request.labels) }}
         continue-on-error: true
       
-      - run: ${{ toJson(github.event.pull_request.labels.*) }}
+      - run: ${{ join(toJson(github.event.pull_request.labels.*), ', ') }}
         continue-on-error: true
       
       - run: ${{ matrix.fork }}
