@@ -53,7 +53,7 @@ jobs:
       # - run: ${{ contains(github.event.pull_request.labels.*.name, "pr:\u0020test all hardforks") }}
       #   continue-on-error: true
       
-      - run: ${{ contains(github.event.pull_request.labels.*.name, "pr::&#x20;test all hardforks") }}
+      - run: ${{ contains(github.event.pull_request.labels.*.name, "pr&#58;&#x20;test all hardforks") }}
         continue-on-error: true
       
       - run: ${{ matrix.fork }}
