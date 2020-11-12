@@ -9,7 +9,9 @@ defaults:
 
 jobs:
   test-vm-state:
-    if: contains(github.event.pull_request.labels.*.name, 'Test all hardforks')
+    # As having : in an Yaml string is so tricky, we're doing a partial string search using contains()
+
+    if: contains(join(github.event.pull_request.labels.*.name, ' '), 'Test all hardforks')
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -40,7 +42,7 @@ jobs:
         continue-on-error: true
 
   test-vm-state-2:
-    if: contains(github.event.pull_request.labels.*.name, 'Test all hardforks')
+    # if: contains(github.event.pull_request.labels.*.name, 'Test all hardforks')
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -62,6 +64,10 @@ jobs:
 
       - run: ${{ toJson(github.event.pull_request.labels.*.name) }}
         continue-on-error: true
+      
+      - run: ${{ contains(join(github.event.pull_request.labels.*.name, ' '), 'Test all hardforks') }}
+        continue-on-error: true
+        name: Label check
       
       - run: ${{ contains(github.event.pull_request.labels.*.name, 'Test all hardforks') }}
         continue-on-error: true
