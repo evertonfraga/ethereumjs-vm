@@ -12,7 +12,7 @@ defaults:
 
 jobs:
   test-vm-state:
-    if: contains(github.event.pull_request.labels.*.name, "test all hardforks")
+    if: contains(github.event.pull_request.labels.*.name, 'test all hardforks')
     runs-on: ubuntu-latest
     strategy:
       matrix:
